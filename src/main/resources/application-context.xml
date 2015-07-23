@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans default-lazy-init="false"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+ 		<bean id ="propertyConfigurer"  class ="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+ 				<property name="location" value="classpath:/dev/service.properties">
+ 				</property>
+ 		</bean>	
+ 		<bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+ 			<property name="protocol" value="${email.protocol}"></property>
+ 			<property name="host" value="${email.host}"></property>
+ 			<property name="port" value="${email.port}"></property>
+ 			<property name="username" value="${email.username}"></property>
+ 			<property name="password" value="${email.password}"></property>
+ 			
+ 			<property name="javaMailProperties">
+ 				<props>
+ 					<prop key="mail.${email.protocol}.auth">${email.auth}</prop>
+ 				</props>
+ 			</property>
+ 		</bean>
+ 		<bean id="accountEmailService" class="com.gaowei.power.account_email.AccountEmailServiceImp">
+ 		 	<property name="javaMailSender" ref="javaMailSender"/>
+ 		 	<property name="systemEmail" value="${email.systemEmail}"/>
+ 		</bean>
+</beans>
