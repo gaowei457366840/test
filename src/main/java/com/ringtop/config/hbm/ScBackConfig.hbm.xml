@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.ringtop.entity.ScBackConfig" table="sc_backconfig">
+        <id name="id" type="string">
+            <column name="ID">
+            	<comment>主键标识</comment>
+            </column>
+            <generator class="uuid.hex" />
+        </id>
+        <property name="serverName" type="java.lang.String">
+            <column name="serverName">
+            	<comment>服务名称</comment>
+            </column>
+        </property>
+        <property name="serverCode" type="java.lang.String">
+            <column name="serverCode" length="300">
+            	<comment>服务编号</comment>
+            </column>
+        </property>
+        <property name="serverIP" type="java.lang.String">
+            <column name="serverIP">
+            	<comment>服务IP</comment>
+            </column>
+        </property>
+         <property name="serverPort" type="java.lang.String">
+            <column name="serverPort">
+            	<comment>服务端口</comment>
+            </column>
+        </property>
+         <property name="actionPath" type="java.lang.String">
+            <column name="actionPath">
+            	<comment>服务访问路径</comment>
+            </column>
+        </property>
+         <property name="serverPath" type="java.lang.String">
+            <column name="serverPath">
+            	<comment>服务所在路径</comment>
+            </column>
+        </property>
+         <property name="status" type="java.lang.Integer">
+            <column name="status">
+            	<comment>服务运行状态</comment>
+            </column>
+        </property>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx.xsd
+     ">
+
+
+	<!-- 用户信息管理 Service -->
+	<bean id="userService" class="com.ringtop.service.system.UserServiceImpl">
+		<property name="userBaseDao" ref="userBaseDao"></property>
+	</bean>
+	
+
+
+	<!-- 话题信息管理 Service -->
+	<bean id="topicService" class="com.ringtop.service.picture.TopicServiceImpl">
+		<property name="topicBaseDao" ref="topicBaseDao"></property>
+	</bean>
+	
+	<!-- 段子信息管理 Service -->
+	<bean id="paragraphService" class="com.ringtop.service.picture.ParagraphServiceImpl">
+		<property name="paragraphBaseDao" ref="paragraphBaseDao"></property>
+	</bean>
+	
+	<!-- 美图信息管理 Service -->
+	<bean id="imageService" class="com.ringtop.service.picture.ImageServiceImpl">
+		<property name="imageBaseDao" ref="imageBaseDao"></property>
+	</bean>
+	
+	<!-- 话题评论信息管理 Service -->
+	<bean id="topicCommentService" class="com.ringtop.service.picture.TopicCommentServiceImpl">
+		<property name="topicCommentBaseDao" ref="topicCommentBaseDao"></property>
+	</bean>
+	
+	<!-- 段子评论信息管理 Service -->
+	<bean id="paragraphCommentService" class="com.ringtop.service.picture.ParagraphCommentServiceImpl">
+		<property name="paragraphCommentBaseDao" ref="paragraphCommentBaseDao"></property>
+	</bean>
+	
+	<!-- 前台话题service -->
+	<bean id="frontTopicService" class="com.ringtop.service.FrontTopicServiceImpl">
+		<property name="topicBaseDao" ref="topicBaseDao"></property>
+		<property name="topicCommentBaseDao" ref="topicCommentBaseDao"></property>
+		<property name="imageBaseDao" ref="imageBaseDao"></property>
+	</bean>
+	
+		<!-- 前台段子service -->
+	<bean id="frontParagraphService" class="com.ringtop.service.FrontParagraphServiceImpl">
+		<property name="paragraphBaseDao" ref="paragraphBaseDao"></property>
+		<property name="paragraphCommentBaseDao" ref="paragraphCommentBaseDao"></property>
+	</bean>
+	
+	<!-- 前端 踩赞 信息更新service -->
+	<bean id="frontCommonService" class="com.ringtop.service.FrontCommonServiceImpl"></bean>
+	
+	<!-- 前端 用户收藏信息管理service -->
+	<!--  
+	<bean id="frontCollectService" class="com.ringtop.service.FrontCollectServiceImpl">
+		<property name="collectBaseDao" ref="collectBaseDao"></property>
+		<property name="paragraphBaseDao" ref="paragraphBaseDao"></property>
+		<property name="topicBaseDao" ref="topicBaseDao"></property>
+	</bean>
+	-->
+	
+</beans>

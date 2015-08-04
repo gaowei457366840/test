@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="config" namespace="/" extends="default">
+		
+		<!-- 用户信息管理-->
+		<action name="user_*" method="{1}" class="UserAction"></action>
+		
+		<!-- 话题信息管理-->
+		<action name="topic_*" method="{1}" class="TopicAction">
+			<result name="update_input">/pages/picture/topic/topic_update_input.jsp</result>
+			<result name="upload_input">/pages/picture/topic/topic_upload_image.jsp</result>
+			<result name="image_detail">/pages/picture/imagemanage/image_detail.jsp</result>
+		</action>
+		
+		<!-- 段子信息管理-->
+		<action name="paragraph_*" method="{1}" class="ParagraphAction">
+			<result name="update_input">/pages/picture/paragraph/paragraph_update_input.jsp</result>
+		</action>
+		
+		<!-- 美图信息管理-->
+		<action name="image_*" method="{1}" class="ImageAction">
+			<result name="iframe_image">/pages/picture/imagemanage/iframe_image_detail.jsp</result>
+		</action>
+		
+		<!-- 话题评论信息管理-->
+		<action name="tc_*" method="{1}" class="TopicCommentAction">
+			<result name="update_input">/pages/picture/topicComment/topicComment_update_input.jsp</result>
+			<result name="add_tc">/pages/picture/topicComment/topicComment_add_input.jsp</result>
+		</action>
+		
+		<!-- 段子评论信息管理-->
+		<action name="pc_*" method="{1}" class="ParagraphCommentAction">
+			<result name="update_input">/pages/picture/paragraphComment/paragraphComment_update_input.jsp</result>
+			<result name="add_pc">/pages/picture/paragraphComment/paragraphComment_add_input.jsp</result>
+		</action>
+
+				
+		<!--	     前端通信               -->
+		<!-- 话题管理（前端）-->
+		<action name="front_topic_*" method="{1}" class="FrontTopicAction"></action>
+		
+		<!-- 段子管理（前端）-->
+		<action name="front_paragraph_*" method="{1}" class="FrontParagraphAction"></action>
+	</package>
+</struts>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.ringtop.entity.TopicComment" table="sc_topic_comment">
+        <id name="id" type="string">
+            <column name="ID">
+            	<comment>主键标识</comment>
+            </column>
+            <generator class="uuid.hex" />
+        </id>
+        <property name="userCode" type="java.lang.String">
+            <column name="userCode">
+            	<comment>用户帐号</comment>
+            </column>
+        </property>
+        <property name="context" type="java.lang.String">
+            <column name="context" length="300">
+            	<comment>评论类容</comment>
+            </column>
+        </property>
+        <property name="createDate" type="java.lang.String">
+            <column name="createDate">
+            	<comment>创建时间</comment>
+            </column>
+        </property>
+         <property name="agree" type="java.lang.Integer">
+            <column name="agree">
+            	<comment>赞同数-赞</comment>
+            </column>
+        </property>
+         <property name="oppose" type="java.lang.Integer">
+            <column name="oppose">
+            	<comment>反对数-踩</comment>
+            </column>
+        </property>
+         <property name="status" type="java.lang.Integer">
+            <column name="status">
+            	<comment>评论状态 0-屏蔽；1-正常</comment>
+            </column>
+        </property>
+        
+        <many-to-one name="topic" class="com.ringtop.entity.Topic" lazy="false" fetch="select">
+        	<column name="topicId">
+        		<comment>所属主题ID</comment>
+        	</column>
+        </many-to-one>
+       
+    </class>
+</hibernate-mapping>

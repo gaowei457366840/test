@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="front" namespace="/" extends="default">
+		
+		<!-- 踩，赞 信息更新 -->
+		<action name="frontAO_*" method="{1}" class="FrontAgreeAndOpposeAction"></action>
+		
+		<!-- 用户信息管理 -->
+		<action name="front_user_*" method="{1}" class="FrontUserAction"></action>
+		
+	</package>
+</struts>

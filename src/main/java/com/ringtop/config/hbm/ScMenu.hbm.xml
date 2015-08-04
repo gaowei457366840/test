@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.ringtop.entity.ScMenu" table="sc_menu">
+        <id name="id" type="java.lang.String">
+            <column name="ID">
+            	<comment>主键标识</comment>
+            </column>
+            <generator class="uuid.hex" />
+        </id>
+        <property name="pmenuId" type="java.lang.String">
+            <column name="PMENU_ID">
+            	<comment>上级菜单ID</comment>
+            </column>
+        </property>
+        <property name="menuCode" type="string">
+            <column name="MENU_CODE">
+            	<comment>菜单编号</comment>
+            </column>
+        </property>
+        
+        <property name="menuName" type="string">
+            <column name="MENU_NAME">
+            	<comment>菜单名称</comment>
+            </column>
+        </property>
+        
+        <property name="menuLevel" type="java.lang.Integer">
+            <column name="MENU_LEVEL">
+            	<comment>菜单级别：几级菜单</comment>
+            </column>
+        </property>
+        
+        <property name="menuOrder" type="java.lang.Integer">
+            <column name="MENU_ORDER">
+            	<comment>菜单排序号码</comment>
+            </column>
+        </property>
+        
+        <property name="isLeaf" type="java.lang.Integer">
+            <column name="IS_LEAF">
+            	<comment>菜单是否是顶级菜单：1-表示顶级菜单；0-表示子菜单</comment>
+            </column>
+        </property>
+        <property name="url" type="java.lang.String">
+            <column name="URL">
+            	<comment>菜单链接地址</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="status">
+            	<comment>//状态：1-正常；0-停用</comment>
+            </column>
+        </property>
+        
+    </class>
+</hibernate-mapping>

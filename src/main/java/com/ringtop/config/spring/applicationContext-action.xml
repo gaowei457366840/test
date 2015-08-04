@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx.xsd
+           ">
+
+	
+	<!-- 用户信息管理 action add zy.lai -->
+	<bean id="UserAction" class="com.ringtop.action.UserAction" scope="prototype">
+		<property name="userService" ref="userService"></property>
+	</bean>
+
+	<!-- 话题信息管理 action add zy.lai -->
+	<bean id="TopicAction" class="com.ringtop.action.TopicAction" scope="prototype">
+		<property name="topicService" ref="topicService"></property>
+		<property name="imageService" ref="imageService"></property>
+	</bean>
+	
+	<!-- 段子信息管理 action add zy.lai -->
+	<bean id="ParagraphAction" class="com.ringtop.action.ParagraphAction" scope="prototype">
+		<property name="paragraphService" ref="paragraphService"></property>
+	</bean>
+	
+	<!-- 话题评论信息管理 action add zy.lai -->
+	<bean id="TopicCommentAction" class="com.ringtop.action.TopicCommentAction" scope="prototype">
+		<property name="topicCommentService" ref="topicCommentService"></property>
+		<property name="topicService" ref="topicService"></property>
+	</bean>
+	
+	<!-- 段子评论信息管理 action add zy.lai -->
+	<bean id="ParagraphCommentAction" class="com.ringtop.action.ParagraphCommentAction" scope="prototype">
+		<property name="paragraphCommentService" ref="paragraphCommentService"></property>
+		<property name="paragraphService" ref="paragraphService"></property>
+	</bean>
+	
+	<!-- 美图信息管理 action add zy.lai -->
+	<bean id="ImageAction" class="com.ringtop.action.ImageAction" scope="prototype">
+		<property name="imageService" ref="imageService"></property>
+	</bean>
+	
+		<!--                            	前端                                                             -->
+
+	<!-- 前台段子管理 action add bm.he -->
+	<bean id="FrontParagraphAction" class="com.ringtop.action.frontaction.FrontParagraphAction" scope="prototype">
+		<property name="frontParagraphService" ref="frontParagraphService"></property>
+		<property name="paragraphService" ref="paragraphService"></property>
+		<property name="paragraphCommentService" ref="paragraphCommentService"></property>
+	</bean>
+	
+	<!-- 踩赞前端信息更新 -->
+	<bean id="FrontAgreeAndOpposeAction" class="com.ringtop.action.frontaction.FrontAgreeAndOpposeAction" scope="prototype">
+		<property name="frontCommonService" ref="frontCommonService"></property>
+	</bean>
+	
+	<!-- 前台用户信息管理 -->
+	<bean id="FrontUserAction" class="com.ringtop.action.frontaction.FrontUserAction" scope="prototype">
+		<property name="userService" ref="userService"></property>
+	</bean>
+	
+	
+	<!-- 前台话题管理 action add bm.he -->
+	<bean id="FrontTopicAction" class="com.ringtop.action.frontaction.FrontTopicAction" scope="prototype">
+		<property name="frontTopicService" ref="frontTopicService"></property>
+		<property name="topicCommentService" ref="topicCommentService"></property>
+		<property name="topicService" ref="topicService"></property>
+	</bean>
+	
+
+	
+</beans>

@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.ringtop.entity.ScUser" table="sc_user">
+        <id name="id" type="string">
+            <column name="ID">
+            	<comment>主键标识</comment>
+            </column>
+            <generator class="uuid.hex" />
+        </id>
+        <property name="userCode" type="java.lang.String">
+            <column name="userCode">
+            	<comment>用户帐号</comment>
+            </column>
+        </property>
+        <property name="userName" type="java.lang.String">
+            <column name="userName">
+            	<comment>用户名称</comment>
+            </column>
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="password">
+            	<comment>用户密码</comment>
+            </column>
+        </property>
+        <property name="imei" type="java.lang.String">
+            <column name="imei">
+            	<comment>手机型号标识</comment>
+            </column>
+        </property>
+         <property name="createDate" type="java.lang.String">
+            <column name="createDate">
+            	<comment>创建时间</comment>
+            </column>
+        </property>
+         <property name="lastLoginDate" type="java.lang.String">
+            <column name="lastLoginDate">
+            	<comment>最后一次登录时间</comment>
+            </column>
+        </property>
+         <property name="phoneCode" type="java.lang.String">
+            <column name="phoneCode">
+            	<comment>电话号码</comment>
+            </column>
+        </property>
+         <property name="qqNum" type="java.lang.String">
+            <column name="qqNum">
+            	<comment>QQ号码</comment>
+            </column>
+        </property>
+         <property name="sinaNum" type="java.lang.String">
+            <column name="sinaNum">
+            	<comment>新浪帐号</comment>
+            </column>
+        </property>
+         <property name="remark" type="java.lang.String">
+            <column name="remark">
+            	<comment>用户备注</comment>
+            </column>
+        </property>
+         <property name="status" type="java.lang.Integer">
+            <column name="status">
+            	<comment>用户状态：1-正常；0-停用；</comment>
+            </column>
+        </property>
+         <property name="source" type="java.lang.Integer">
+            <column name="resource">
+            	<comment>用户注册来源：1-客户端；2-网页；</comment>
+            </column>
+        </property>
+         <property name="encryptpara" type="java.lang.String">
+            <column name="encryptpara">
+            	<comment>密码盐-四位随机数</comment>
+            </column>
+        </property>
+         <property name="portrait" type="java.lang.String">
+            <column name="portrait">
+            	<comment>用户头像</comment>
+            </column>
+        </property>
+       
+    </class>
+</hibernate-mapping>
