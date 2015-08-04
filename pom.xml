@@ -3,11 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.gaowei.power</groupId>
-  <artifactId>account-email</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>account-email</name>
+  <name>mircopower</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -138,4 +137,5 @@
 			</plugin>
 	    </plugins>
 	</build>
+  	<artifactId>mircopower</artifactId>
 </project>
